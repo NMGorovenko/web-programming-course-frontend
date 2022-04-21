@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    justify-content: space-between;
+}
+
+.App {
+    width: auto;
+}
+
+.page {
+    height: 30px;
+    width: 60px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid teal;
+}
+
+.page__current {
+    border: 2px solid orange;
+    font-weight: bold;
+}
+
+.Pagination {
+    margin-top: 30px;
+    text-align: center;
+}

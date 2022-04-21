@@ -1,0 +1,35 @@
+
+.product_item {
+    width: 230px;
+    height: 400px;
+    border: 1px solid black;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product_img {
+    height: 200px;
+    width: 220px;
+}
+
+.product_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.buy_btn {
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    background: #005bff;
+    color: white;
+    border-radius: 6px;
+}
