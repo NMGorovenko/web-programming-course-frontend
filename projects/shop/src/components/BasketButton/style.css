@@ -1,0 +1,38 @@
+.basket_btn {
+    display: flex;
+    flex-direction: row;
+    min-width: 130px;
+    max-width: 130px;
+    max-height: 40px;
+
+    position: fixed;
+    right: 0;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF9AE;
+}
+
+.total_cost {
+    margin: auto;
+
+}
+
+.amount_items_section {
+    display: flex;
+    margin: auto;
+
+}
+
+.amount_items {
+    border: red solid 1px;
+    height: 17px;
+    border-radius: 60px;
+    color: white;
+    background: red;
+}
+
+.basket_icon {
+    min-height: 32px;
+    min-width: 32px;
+}

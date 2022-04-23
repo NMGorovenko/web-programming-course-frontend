@@ -1,9 +1,12 @@
-
 .products_list {
     display: flex;
     flex-wrap: wrap;
+    max-width: 1024px;
+    justify-content: left;
+    margin: auto;
 }
 
 .product_item {
     margin: 0px 20px 10px 0px;
+    justify-content: left;
 }
