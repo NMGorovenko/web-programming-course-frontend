@@ -21,7 +21,8 @@ const ProductElement: React.FC<ProductElementProps> = props => {
 
     const addProductInBasket = () => {
         dispatch({
-            type: BasketActionTypes.ADD_TO_BASKET, payload: new Product({id, title, imageUrl, price, feedbackScore})
+            type: BasketActionTypes.ADD_TO_BASKET,
+            payload: new Product({id, title, imageUrl, price, feedbackScore})
         })
     };
 

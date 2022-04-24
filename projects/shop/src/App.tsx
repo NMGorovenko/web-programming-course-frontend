@@ -3,8 +3,6 @@ import './styles/app.css';
 import Router from "./router";
 import { BrowserRouter } from 'react-router-dom';
 
-import {store} from "./store";
-
 const App: React.FC = () => {
     return (
         <BrowserRouter>
