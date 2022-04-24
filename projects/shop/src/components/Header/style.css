@@ -2,5 +2,7 @@ header {
   height: 100px;
   width: auto;
   border: black solid 2px;
+  display: flex;
+  flex-direction: column;
 }
 

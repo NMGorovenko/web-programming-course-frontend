@@ -3,7 +3,7 @@ import {Dispatch} from "redux";
 import ProductService from "../../API/ProductService";
 
 export const fetchProducts = (page: number, pageSize: number) => {
-    return async (dispatch : Dispatch) : Promise<void> => {
+    return async (dispatch : Dispatch<ProductsAction>) : Promise<void> => {
         try {
             dispatch({
                 type: ProductsActionTypes.FETCH_PRODUCTS

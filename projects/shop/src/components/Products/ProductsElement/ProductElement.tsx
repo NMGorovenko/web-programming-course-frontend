@@ -15,8 +15,6 @@ const ProductElement: React.FC<ProductElementProps> = props => {
         product: {id, title, imageUrl, price, feedbackScore}
     } = props;
 
-    const {products, totalSum} = useTypedSelector(state => state.basket)
-
     const dispatch = useDispatch<Dispatch<BasketAction>>();
 
     const addProductInBasket = () => {

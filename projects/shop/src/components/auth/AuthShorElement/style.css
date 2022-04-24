@@ -1,0 +1,9 @@
+.AuthShortElement {
+    align-self: end;
+    padding: 20px 30px 0px 0px;
+}
+
+.auth_btn {
+    height: 30px;
+    width: 100px;
+}
