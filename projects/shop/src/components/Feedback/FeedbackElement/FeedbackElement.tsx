@@ -12,6 +12,7 @@ const FeedbackElement : React.FC<FeedbackElementProps> = (props) => {
         feedback : { id , text, estimation, feedbackUser, createdAt}
     } = props;
 
+    const date = new Date(createdAt);
     return (
         <div className="feedback">
             <div className="feedback__info">
@@ -20,7 +21,7 @@ const FeedbackElement : React.FC<FeedbackElementProps> = (props) => {
                         {feedbackUser.firstName}
                     </span>
                     <span className="feedback_created_at">
-                        {createdAt.toString()}
+                        {date.toDateString()}
                     </span>
                 </div>
                 <div className="feedback__info_wrap">

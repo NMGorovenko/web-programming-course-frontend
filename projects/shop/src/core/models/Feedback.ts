@@ -16,7 +16,7 @@ export class Feedback {
     public feedbackUser : User;
 
     /** Feedback created at. */
-    public createdAt : Date;
+    public createdAt : string;
 
     /** Feedback model constructor.
      *
