@@ -57,3 +57,22 @@ export const getMeRequest = () => {
         }
     }
 }
+
+export const logoutRequest = () => {
+    return async (dispatch : Dispatch<AuthAction>) : Promise<void> => {
+        try {
+            dispatch({
+                type: AuthActionTypes.LOGOUT_REQUEST,
+            })
+            const user = await AuthService.Logout();
+            dispatch({
+                type: AuthActionTypes.LOGOUT_SUCCESS,
+            })
+        } catch (e) {
+            dispatch({
+                type: AuthActionTypes.GET_ME_ERROR,
+                payload : 'Logout error',
+            })
+        }
+    }
+}

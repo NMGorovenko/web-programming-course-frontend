@@ -19,8 +19,6 @@ const AuthModal = (props : ModalProps) => {
     const dispatch = useAppDispatch();
 
     const login = () => {
-        console.log(email);
-        console.log(password);
         dispatch(loginRequest(email, password, false));
     }
     return (

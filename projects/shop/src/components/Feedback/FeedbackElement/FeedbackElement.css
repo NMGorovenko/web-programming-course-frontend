@@ -1,0 +1,23 @@
+.feedback{
+    min-height: 100px;
+    border: black solid 1px;
+    margin: 20px 0px 0px 20px;
+}
+
+.feedback__info_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_name{
+    font-size: 30px;
+}
+
+.feedback_created_at {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.feedback__content{
+    font-size: 20px;
+}

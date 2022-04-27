@@ -1,13 +1,20 @@
 import React from 'react';
 import {Routes, Route} from "react-router";
 import ShopPage from "./pages/ShopPage/ShopPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import AppLayout from "./containers/AppLayout/AppLayout";
 
 const Router = () => {
     return (
         <>
-            <Routes>
-                <Route path="*" element={<ShopPage />}/>
-            </Routes>
+            <AppLayout>
+                <Routes>
+                    <Route path="/product"  element={<ShopPage />}/>
+                    <Route path="/product/:productId" element={<ProductPage />}/>
+                </Routes>
+            </AppLayout>
         </>
     );
 };

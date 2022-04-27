@@ -1,0 +1,21 @@
+.product_info_container {
+    display: flex;
+}
+
+.product_picture {
+    width: 400px
+}
+
+.product_details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.buy_btn {
+    margin-bottom: 80px;
+}
+
+.product_price {
+    font-size: 50px;
+}

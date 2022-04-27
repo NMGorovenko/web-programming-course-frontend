@@ -5,6 +5,8 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {useDispatch} from "react-redux";
 import {BasketAction, BasketActionTypes} from "../../../store/reducers/Basket/BasketTypes";
 import {Dispatch} from "redux";
+import { Link } from 'react-router-dom';
+import {Rating} from "@mui/material";
 
 interface ProductElementProps {
     product: Product;
@@ -28,10 +30,10 @@ const ProductElement: React.FC<ProductElementProps> = props => {
             <div className='product_item'>
                 <div className='product_header'>
                     <div className='product_title'>
-                        <a href='#'>{props.product.title} </a>
+                        <Link to={id}>{title}</Link>
                     </div>
                     <div className='score'>
-                        {props.product.feedbackScore.toFixed(2)}/{Product.maxScore}
+                        <Rating name="read-only" value={feedbackScore} readOnly />
                     </div>
                 </div>
                 <a href='#'>

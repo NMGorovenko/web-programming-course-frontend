@@ -14,6 +14,7 @@ export interface LoginData {
 export default class AuthService{
     private static authUrl = "https://localhost:5001/api/Auth"
     private static getMeUrl = "https://localhost:5001/api/Auth"
+    private static logout = "https://localhost:5001/api/Auth"
 
     public static async Login(login : LoginData){
         const response = await axios.post(this.authUrl,
@@ -28,5 +29,10 @@ export default class AuthService{
             id : response.data['id'],
             firstName : response.data['firstName'],
         };
+    }
+
+
+    public static async Logout(){
+        await axios.delete(this.logout, {withCredentials: true});
     }
 }
