@@ -1,0 +1,9 @@
+.leave__feedback{
+    min-height: 100px;
+    border: black solid 1px;
+    margin: 20px 0px 0px 20px;
+}
+
+.leaveFeedback__content{
+    font-size: 20px;
+}

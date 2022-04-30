@@ -3,6 +3,8 @@ import {Feedback} from "../../core/models/Feedback";
 import FeedbackService from "../../API/FeedbackService";
 import {getPagesArray} from "../../utils/pages";
 import FeedbackElement from "./FeedbackElement/FeedbackElement";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import LeaveFeedbackForm from "./LeaveFeedbackForm/LeaveFeedbackForm";
 
 interface FeedbackListProps {
     productId : string
@@ -11,10 +13,10 @@ const FeedbackList : React.FC<FeedbackListProps> = (props) => {
 
     const { productId } = props;
     const [ feedbackList, setFeedbackList ] = useState<Array<Feedback>>(new Array<Feedback>());
-
+    const { user, isAuthenticated } = useTypedSelector(state => state.auth);
 
     const [page, setPage] = useState<number>(1);
-    const [pageSize, setPageSize] = useState<number>(2);
+    const [pageSize, setPageSize] = useState<number>(10);
     const [totalPages, setTotalPages] = useState<number>(0);
 
     const fetchFeedbacks = async (page : number) => {
@@ -29,7 +31,7 @@ const FeedbackList : React.FC<FeedbackListProps> = (props) => {
         }
     }
 
-    const changePage = async (page : number, pageSize: number = 2 ) => {
+    const changePage = async (page : number, pageSize: number = 10 ) => {
         await fetchFeedbacks(page);
     }
 
@@ -44,9 +46,13 @@ const FeedbackList : React.FC<FeedbackListProps> = (props) => {
         feedbackList && feedbackList.map(feedback =>
             <FeedbackElement key={feedback.id} feedback={feedback} />)
 
+
     return (
         <div>
             <h2>FEEDBACKS:</h2>
+            <LeaveFeedbackForm productId={productId}
+                               user={user}
+                               isAuthenticated={isAuthenticated} />
             {renderFeedbackList}
             <div className="Pagination">
                 {pagesArray.map(p =>

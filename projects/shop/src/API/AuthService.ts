@@ -17,7 +17,7 @@ export default class AuthService{
     private static logout = "https://localhost:5001/api/Auth"
 
     public static async Login(login : LoginData){
-        const response = await axios.post(this.authUrl,
+        await axios.post(this.authUrl,
             {
                 ...login
             }, {withCredentials: true}, )
@@ -30,7 +30,6 @@ export default class AuthService{
             firstName : response.data['firstName'],
         };
     }
-
 
     public static async Logout(){
         await axios.delete(this.logout, {withCredentials: true});
