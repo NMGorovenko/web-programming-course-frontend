@@ -44,15 +44,18 @@ const FeedbackList : React.FC<FeedbackListProps> = (props) => {
 
     const renderFeedbackList =
         feedbackList && feedbackList.map(feedback =>
-            <FeedbackElement key={feedback.id} feedback={feedback} />)
-
+            <FeedbackElement key={feedback.id}
+                             feedback={feedback}
+            />)
 
     return (
         <div>
             <h2>FEEDBACKS:</h2>
             <LeaveFeedbackForm productId={productId}
                                user={user}
-                               isAuthenticated={isAuthenticated} />
+                               isAuthenticated={isAuthenticated}
+                               fetchFeedback={fetchFeedbacks}
+            />
             {renderFeedbackList}
             <div className="Pagination">
                 {pagesArray.map(p =>

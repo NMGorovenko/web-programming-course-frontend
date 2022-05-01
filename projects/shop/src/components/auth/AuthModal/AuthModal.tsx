@@ -3,8 +3,6 @@ import './style.css';
 import {useDispatch} from "react-redux";
 import {loginRequest} from "../../../store/action-creators/auth";
 import {useAppDispatch} from "../../../hooks/useTypedSelector";
-import {BasketAction} from "../../../store/reducers/Basket/BasketTypes";
-import {AuthAction} from "../../../store/reducers/Auth/AuthTypes";
 
 interface ModalProps {
     active : boolean,

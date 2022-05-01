@@ -7,20 +7,30 @@ import FeedbackService from "../../../API/FeedbackService";
 interface LeaveFeedbackFormProps {
     user : User | null,
     isAuthenticated : boolean,
-    productId : string
+    productId : string,
+    fetchFeedback : (page : number) => Promise<void>,
 }
 
 const LeaveFeedbackForm : React.FC<LeaveFeedbackFormProps> = props => {
-    const {isAuthenticated, user, productId} = props;
+    const {isAuthenticated, user, productId, fetchFeedback} = props;
     const [estimation, setEstimation] = useState<number>(5);
     const [feedbackText, setFeedbackText] = useState<string>("");
+    const firstPage = 1;
 
     const submitForm = () => {
         FeedbackService.PostFeedback({
             productId : productId,
             estimation : estimation,
             text : feedbackText
-        }).catch(console.error);
+        }).catch(console.error)
+            .then(() => {
+                fetchFeedback(firstPage)
+                    .catch(console.error);
+            })
+
+        fetchFeedback(firstPage)
+            .catch(console.error)
+            .finally();
     }
 
     if (!isAuthenticated){
