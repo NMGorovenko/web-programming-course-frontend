@@ -27,10 +27,6 @@ const LeaveFeedbackForm : React.FC<LeaveFeedbackFormProps> = props => {
                 fetchFeedback(firstPage)
                     .catch(console.error);
             })
-
-        fetchFeedback(firstPage)
-            .catch(console.error)
-            .finally();
     }
 
     if (!isAuthenticated){
