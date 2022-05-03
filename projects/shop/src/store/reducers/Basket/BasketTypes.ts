@@ -1,7 +1,8 @@
 import {Product} from "../../../core/models/Product";
 
 export enum BasketActionTypes {
-    ADD_TO_BASKET = 'ADD_TO_BASKET'
+    ADD_TO_BASKET = 'ADD_TO_BASKET',
+    REMOVE_FROM_BASKET = 'REMOVE_FROM_BASKET'
 }
 
 export interface BasketState {
@@ -15,4 +16,9 @@ interface AddToBasket {
     payload: Product
 }
 
-export type BasketAction = AddToBasket;
+interface RemoveFromBasket {
+    type: BasketActionTypes.REMOVE_FROM_BASKET;
+    payload: Product
+}
+
+export type BasketAction = AddToBasket | RemoveFromBasket;

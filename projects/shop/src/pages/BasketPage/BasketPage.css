@@ -1,0 +1,15 @@
+.basket_page__product_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.basket_page {
+    font-size: 34px;
+    display: flex;
+    flex-direction: column;
+}
+
+.basket_page__total_sum {
+    align-self: end;
+    margin-right: 200px;
+}

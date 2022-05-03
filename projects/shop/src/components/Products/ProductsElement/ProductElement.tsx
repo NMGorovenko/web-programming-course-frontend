@@ -26,31 +26,31 @@ const ProductElement: React.FC<ProductElementProps> = props => {
         })
     };
 
-        return (
-            <div className='product_item'>
-                <div className='product_header'>
-                    <div className='product_title'>
-                        <Link to={id}>{title}</Link>
-                    </div>
-                    <div className='score'>
-                        <Rating name="read-only" value={feedbackScore} readOnly />
-                    </div>
+    return (
+        <div className='product_item'>
+            <div className='product_header'>
+                <div className='product_title'>
+                    <Link to={id}>{title}</Link>
                 </div>
-                <a href='#'>
-                    <img className='product_img'
-                         src={props.product.imageUrl}
-                         alt='https://bugulma.1sota.ru/images/no_photo.png'/>
-                </a>
-                <div className='product_footer'>
-                    <div className='product_price'>
-                        {props.product.price} ₽
-                    </div>
-                    <div className='product_buy'>
-                        <button onClick={addProductInBasket} className='buy_btn'>Buy</button>
-                    </div>
+                <div className='score'>
+                    <Rating name="read-only" value={feedbackScore} readOnly />
                 </div>
             </div>
-        );
+            <a href='#'>
+                <img className='product_img'
+                     src={props.product.imageUrl}
+                     alt='https://bugulma.1sota.ru/images/no_photo.png'/>
+            </a>
+            <div className='product_footer'>
+                <div className='product_price'>
+                    {props.product.price} ₽
+                </div>
+                <div className='product_buy'>
+                    <button onClick={addProductInBasket} className='buy_btn'>Buy</button>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default ProductElement;
