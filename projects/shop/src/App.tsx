@@ -10,6 +10,7 @@ const App: React.FC = () => {
     useEffect(() => {
         dispatch(getMeRequest())
     })
+
     return (
         <BrowserRouter>
             <Router />
