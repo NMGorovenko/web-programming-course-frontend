@@ -14,9 +14,19 @@ interface FeedbackCreationData {
     productId : string;
 }
 
+interface IDeleteFeedback {
+    feedbackId : string;
+}
+
+interface IUpdateFeedback {
+    feedbackId : string;
+    text : string;
+    estimation : number;
+}
+
 export default class FeedbackService {
     private static productQuery = "https://localhost:5001/api/Product/";
-
+    private static feedbackApi = "https://localhost:5001/api/Feedback/";
     public static async GetFeedbackList(productId : string, page : number, pageSize : number): Promise<FeedbackListResult> {
         const query = FeedbackService.productQuery + productId.toString() + '/feedbacks';
         const response = await axios.get(query,
@@ -41,5 +51,20 @@ export default class FeedbackService {
             {
                 ...data
             }, {withCredentials: true});
+    }
+
+
+    /** Delete feedback by id. */
+    public static async DeleteFeedback(data : IDeleteFeedback) {
+        const query = FeedbackService.feedbackApi + data.feedbackId.toString();
+        await axios.delete(query, {withCredentials: true});
+    }
+
+    /** Update feedback by id. */
+    public static async UpdateFeedback(data : IUpdateFeedback) {
+        const query = FeedbackService.feedbackApi + data.feedbackId.toString();
+        await axios.put(query, {
+            ...data
+        } ,{withCredentials: true});
     }
 }

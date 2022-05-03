@@ -46,6 +46,7 @@ const FeedbackList : React.FC<FeedbackListProps> = (props) => {
         feedbackList && feedbackList.map(feedback =>
             <FeedbackElement key={feedback.id}
                              feedback={feedback}
+                             fetchFeedback={fetchFeedbacks}
             />)
 
     return (
