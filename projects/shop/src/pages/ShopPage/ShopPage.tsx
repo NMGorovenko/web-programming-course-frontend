@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
-import Products from "../../components/Products/Products";
-import BasketButton from "../../components/BasketButton/BasketButton";
+import React from "react";
+import ProductList from "./ProductPage/Products/ProductList";
+import BasketButton from "./BasketButton/BasketButton";
 
+/** Shop page. */
 const ShopPage: React.FC = () => {
     return (
         <>
             <div className="App">
                 <BasketButton />
-                <Products />
+                <ProductList />
             </div>
         </>
     );

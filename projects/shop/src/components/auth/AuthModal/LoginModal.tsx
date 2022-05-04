@@ -9,7 +9,8 @@ interface ModalProps {
     setActive : Dispatch<React.SetStateAction<boolean>>
 }
 
-const AuthModal = (props : ModalProps) => {
+/** Login modal component for log in.*/
+const LoginModal = (props : ModalProps) => {
     const {active, setActive} = props;
 
     const [email, setEmail] = useState<string>("");
@@ -17,7 +18,8 @@ const AuthModal = (props : ModalProps) => {
     const dispatch = useAppDispatch();
 
     const login = () => {
-        dispatch(loginRequest(email, password, false));
+        dispatch(loginRequest(email, password, false))
+            .catch(console.error);
     }
     return (
         <div className={active ? "auth_modal active" : "auth_modal"} onClick={() => setActive(false)}>
@@ -34,4 +36,4 @@ const AuthModal = (props : ModalProps) => {
     );
 };
 
-export default AuthModal;
+export default LoginModal;

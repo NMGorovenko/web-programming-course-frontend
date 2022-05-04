@@ -6,6 +6,7 @@ type Props = {
     children?: React.ReactNode
 };
 
+/** Application container. */
 const AppLayout: React.FC<Props> = props => {
     return (
         <>

@@ -1,17 +1,18 @@
 import React from 'react';
-import {Product} from "../../../core/models/Product";
+import { Product } from "../../../../core/models/Product";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {IconButton} from "@mui/material";
-import {Link} from "react-router-dom";
+import { IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./ProductItem.css"
-import {useAppDispatch} from "../../../hooks/useTypedSelector";
-import {BasketAction, BasketActionTypes} from "../../../store/reducers/Basket/BasketTypes";
+import { useAppDispatch } from "../../../../hooks/useTypedSelector";
+import { BasketActionTypes } from "../../../../store/reducers/Basket/BasketTypes";
 
 interface IProps {
     product: Product;
     amount: number;
 }
 
+/** Product item in basket page. */
 const ProductItem : React.FC<IProps> = props => {
     const {
         product: {id, title, imageUrl, price, feedbackScore}
@@ -19,7 +20,6 @@ const ProductItem : React.FC<IProps> = props => {
     const { amount } = props;
 
     const dispatch = useAppDispatch();
-
 
     const removeProduct = () => {
         dispatch({

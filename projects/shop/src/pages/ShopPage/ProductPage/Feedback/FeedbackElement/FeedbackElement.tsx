@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {Feedback} from "../../../core/models/Feedback";
+import {Feedback} from "../../../../../core/models/Feedback";
 import {Button, IconButton, Rating, TextField} from "@mui/material";
 import "./FeedbackElement.css"
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {useTypedSelector} from "../../../../../hooks/useTypedSelector";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import FeedbackService from "../../../API/FeedbackService";
+import {FeedbackService} from "../../../../../core/services/FeedbackService";
 
 
 interface FeedbackElementProps {

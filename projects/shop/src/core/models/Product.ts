@@ -1,4 +1,3 @@
-
 /** Product model. */
 export class Product {
 

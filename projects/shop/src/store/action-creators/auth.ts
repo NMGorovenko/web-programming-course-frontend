@@ -1,8 +1,8 @@
 import {Dispatch} from "redux";
 import {AuthAction, AuthActionTypes} from "../reducers/Auth/AuthTypes";
-import AuthService from "../../API/AuthService";
+import {AuthService} from "../../core/services/AuthService";
 
-
+/** Async action for login request. */
 export const loginRequest = (email : string, password : string, rememberMe : boolean) => {
     return async (dispatch : Dispatch<AuthAction>) : Promise<void> => {
         try {
@@ -34,6 +34,7 @@ export const loginRequest = (email : string, password : string, rememberMe : boo
     }
 }
 
+/** Async action for GetMe request. */
 export const getMeRequest = () => {
     return async (dispatch : Dispatch<AuthAction>) : Promise<void> => {
         try {
@@ -58,6 +59,7 @@ export const getMeRequest = () => {
     }
 }
 
+/** Async action for logout request. */
 export const logoutRequest = () => {
     return async (dispatch : Dispatch<AuthAction>) : Promise<void> => {
         try {

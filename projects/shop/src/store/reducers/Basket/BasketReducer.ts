@@ -7,6 +7,7 @@ const initialState : BasketState = {
     error: null
 }
 
+/** Basket reducer. */
 export const basketReducer = (state = initialState, action : BasketAction) : BasketState => {
     switch (action.type){
         case BasketActionTypes.ADD_TO_BASKET:

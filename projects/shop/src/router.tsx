@@ -1,10 +1,11 @@
 import React from 'react';
 import {Routes, Route} from "react-router";
 import ShopPage from "./pages/ShopPage/ShopPage";
-import ProductPage from "./pages/ProductPage/ProductPage";
+import ProductPage from "./pages/ShopPage/ProductPage/ProductPage";
 import AppLayout from "./containers/AppLayout/AppLayout";
-import BasketPage from "./pages/BasketPage/BasketPage";
+import BasketPage from "./pages/ShopPage/BasketPage/BasketPage";
 
+/** Main router. */
 const Router = () => {
     return (
         <>

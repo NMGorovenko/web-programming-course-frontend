@@ -1,22 +1,23 @@
-import {Product} from "../core/models/Product";
+import {Product} from "../models/Product";
 import axios from "axios";
+import {axiosInstance} from "./ApiService";
 
-interface ProductsResult {
+interface ProductListResult {
     products : Product[];
     page : number;
     pageSize : number;
     totalPages : number;
 }
 
-interface ProductResult {
+interface ProductElementResult {
     product : Product;
 }
 
-export default class ProductService {
-    private static getProductQuery = "https://localhost:5001/api/Product";
-
-    public static async getAll(page : number, pageSize : number): Promise<ProductsResult> {
-        const response = await axios.get(this.getProductQuery,
+/** Product service. */
+const ProductService = {
+    /** Get all products on some page. */
+    async getAll(page : number, pageSize : number): Promise<ProductListResult> {
+        const response = await axiosInstance.get('/Product',
             {
                 params: {
                     page: page,
@@ -29,18 +30,17 @@ export default class ProductService {
             pageSize : response.data["metadata"]["pageSize"],
             totalPages: response.data["metadata"]["totalPages"],
         };
-    }
+    },
 
-    public static async getProduct(id : string): Promise<ProductResult> {
-        const query = this.getProductQuery + '\\' + id;
-        const response = await axios.get(query, {
+    /** Get product by id. */
+    async getProduct(id : string): Promise<ProductElementResult> {
+        const response = await axiosInstance.get(`/Product/${id}`, {
+        });
 
-        })
-        console.log(response);
         return {
             product : response.data
         };
-    }
+    },
 }
 
-
+export {ProductService};

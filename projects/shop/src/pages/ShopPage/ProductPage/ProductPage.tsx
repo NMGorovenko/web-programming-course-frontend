@@ -1,17 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {Dispatch} from "redux";
-import {Button, Rating} from "@mui/material";
-import {Product} from "../../core/models/Product";
-import {BasketAction, BasketActionTypes} from "../../store/reducers/Basket/BasketTypes";
+import {Rating} from "@mui/material";
+import {Product} from "../../../core/models/Product";
+import {BasketAction, BasketActionTypes} from "../../../store/reducers/Basket/BasketTypes";
 import {useParams} from "react-router";
-import ProductService from "../../API/ProductService";
-import AppLayout from "../../containers/AppLayout/AppLayout";
 import "./style.css";
-import BasketButton from "../../components/BasketButton/BasketButton";
-import FeedbackList from "../../components/Feedback/FeedbackList";
+import BasketButton from "../BasketButton/BasketButton";
+import FeedbackList from "./Feedback/FeedbackList";
+import {ProductService} from "../../../core/services/ProductService";
 
-
+/** Product page. */
 const ProductPage : React.FC = () => {
     const { productId } = useParams<string>();
     const [product, setProduct] = useState<Product>(new Product({

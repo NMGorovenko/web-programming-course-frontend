@@ -11,10 +11,9 @@ import {
 } from "@mui/material";
 
 
+/** Header component. */
 const Header: React.FC = () => {
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-
 
     return (
         <header>

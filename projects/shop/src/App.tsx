@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import {getMeRequest} from "./store/action-creators/auth";
 import {useAppDispatch} from "./hooks/useTypedSelector";
 
+/** App component. */
 const App: React.FC = () => {
     const dispatch = useAppDispatch();
     useEffect(() => {

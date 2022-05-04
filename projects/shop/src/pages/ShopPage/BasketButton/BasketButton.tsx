@@ -1,9 +1,10 @@
 import React from 'react';
 import "./style.css"
 import {useSelector} from "react-redux";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {Link} from "react-router-dom";
 
+/** Component with basket total sum and link to basket page. */
 const BasketButton : React.FC = () => {
     const {products, totalSum, error} = useTypedSelector(state => state.basket)
 

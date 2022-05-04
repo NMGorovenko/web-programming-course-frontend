@@ -1,7 +1,8 @@
 import {ProductsAction, ProductsActionTypes} from "../reducers/Product/ProductsTypes";
 import {Dispatch} from "redux";
-import ProductService from "../../API/ProductService";
+import {ProductService} from "../../core/services/ProductService";
 
+/** Async action for fetch product. */
 export const fetchProducts = (page: number, pageSize: number) => {
     return async (dispatch : Dispatch<ProductsAction>) : Promise<void> => {
         try {

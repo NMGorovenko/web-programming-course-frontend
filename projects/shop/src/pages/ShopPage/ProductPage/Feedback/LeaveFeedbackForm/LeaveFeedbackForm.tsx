@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Button, Rating, TextField} from "@mui/material";
-import {User} from "../../../core/models/User";
+import {User} from "../../../../../core/models/User";
 import "./LeaveFeedbackForm.css";
-import FeedbackService from "../../../API/FeedbackService";
+import {FeedbackService} from "../../../../../core/services/FeedbackService";
 
 interface LeaveFeedbackFormProps {
     user : User | null,

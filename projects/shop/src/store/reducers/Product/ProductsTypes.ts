@@ -1,11 +1,13 @@
 import {Product} from "../../../core/models/Product";
 
+/** Products action types. */
 export enum ProductsActionTypes {
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
     FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR',
     FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS'
 }
 
+/** Products state */
 export interface ProductsState {
     products : Product[];
     page : number;
@@ -34,6 +36,7 @@ interface FetchProductsSuccessAction {
     }
 }
 
+/** Products actions. */
 export type ProductsAction =  FetchProductsAction |
     FetchProductsErrorAction |
     FetchProductsSuccessAction;

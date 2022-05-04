@@ -1,10 +1,11 @@
 import React from 'react';
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {groupByToMap} from "../../utils/GroupBy";
-import {Product} from "../../core/models/Product";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {groupByToMap} from "../../../utils/GroupBy";
+import {Product} from "../../../core/models/Product";
 import ProductItem from "./ProductItem/ProductItem";
 import "./BasketPage.css"
 
+/** Basket page. */
 const BasketPage : React.FC = () => {
     const {products, totalSum} = useTypedSelector(state => state.basket);
 

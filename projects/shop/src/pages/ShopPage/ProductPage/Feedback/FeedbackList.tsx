@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Feedback} from "../../core/models/Feedback";
-import FeedbackService from "../../API/FeedbackService";
-import {getPagesArray} from "../../utils/pages";
+import {Feedback} from "../../../../core/models/Feedback";
+import {getPagesArray} from "../../../../utils/pages";
 import FeedbackElement from "./FeedbackElement/FeedbackElement";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import LeaveFeedbackForm from "./LeaveFeedbackForm/LeaveFeedbackForm";
+import {FeedbackService} from "../../../../core/services/FeedbackService";
 
 interface FeedbackListProps {
     productId : string

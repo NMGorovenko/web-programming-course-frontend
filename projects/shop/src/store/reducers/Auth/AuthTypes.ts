@@ -1,5 +1,6 @@
 import {User} from "../../../core/models/User";
 
+/** Actions for auth. */
 export enum AuthActionTypes {
     LOGIN_REQUEST = 'LOGIN_REQUEST',
     LOGIN_SUCCESS = 'LOGIN_SUCCESS',
@@ -12,6 +13,7 @@ export enum AuthActionTypes {
     LOGOUT_ERROR = 'LOGOUT_ERROR'
 }
 
+/** State for auth reducer. */
 export interface AuthState {
     user : null | User;
     isAuthenticated : boolean;
@@ -61,6 +63,7 @@ interface LogoutError {
     payload : string;
 }
 
+/** Auth actions for auth reducer. */
 export type AuthAction = LoginRequest | LoginSuccess | LoginError |
                          GetMeRequest | GetMeSuccess | GetMeError |
                          LogoutRequest | LogoutSuccess | LogoutError;

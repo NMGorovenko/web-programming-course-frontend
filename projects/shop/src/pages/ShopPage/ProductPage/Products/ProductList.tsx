@@ -1,22 +1,24 @@
 import React, {useEffect} from 'react';
 import ProductElement from "./ProductsElement/ProductElement";
 import './Products.css'
-import {AppDispatch, useAppDispatch, useTypedSelector} from "../../hooks/useTypedSelector";
-import {fetchProducts} from "../../store/action-creators/product";
-import {getPagesArray} from "../../utils/pages";
+import {useAppDispatch, useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {fetchProducts} from "../../../../store/action-creators/product";
+import {getPagesArray} from "../../../../utils/pages";
 
-
-const Products : React.FC = () => {
+/** Product list. */
+const ProductList : React.FC = () => {
     const {page, pageSize, totalPages, products} = useTypedSelector(state => state.products);
     const dispatch = useAppDispatch();
     const pagesArray = getPagesArray(totalPages);
     useEffect(() => {
-            dispatch(fetchProducts(page, pageSize));
+            dispatch(fetchProducts(page, pageSize))
+                .catch(console.log);
         }, [page]
     )
 
     const changePage = (page : number, pageSize: number = 12 ) => {
-        dispatch(fetchProducts(page, pageSize));
+        dispatch(fetchProducts(page, pageSize))
+            .catch(console.log);
     }
 
     const renderProductList =
@@ -41,4 +43,4 @@ const Products : React.FC = () => {
     );
 };
 
-export default Products;
+export default ProductList;

@@ -1,5 +1,5 @@
 import {ProductsAction, ProductsActionTypes, ProductsState} from "./ProductsTypes";
-import products from "../../../components/Products/Products";
+import products from "../../../pages/ShopPage/ProductPage/Products/ProductList";
 
 
 const initialState : ProductsState = {
@@ -11,6 +11,7 @@ const initialState : ProductsState = {
     error : null
 }
 
+/** Products reducer. */
 export const productsReducer = (state = initialState, action : ProductsAction) : ProductsState => {
     switch (action.type){
         case ProductsActionTypes.FETCH_PRODUCTS:

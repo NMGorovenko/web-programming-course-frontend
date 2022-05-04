@@ -9,6 +9,7 @@ const initialState : AuthState = {
 
 }
 
+/** Auth reducer. */
 export const authReducer = (state = initialState, action : AuthAction) : AuthState => {
     switch (action.type) {
         case AuthActionTypes.LOGIN_REQUEST:
