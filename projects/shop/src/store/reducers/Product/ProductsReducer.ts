@@ -1,5 +1,5 @@
 import {ProductsAction, ProductsActionTypes, ProductsState} from "./ProductsTypes";
-import products from "../../../pages/ShopPage/ProductPage/Products/ProductList";
+import products from "../../../pages/ShopPage/Products/ProductList";
 
 
 const initialState : ProductsState = {

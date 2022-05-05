@@ -1,0 +1,26 @@
+.chat_room {
+    min-height: 768px;
+    width: 768px;
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#message_input{
+    align-self: start;
+    width: 600px;
+}
+
+.chat_room__form{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.chat_room__name{
+    font-size: 40px;
+    text-align: center;
+}

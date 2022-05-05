@@ -13,6 +13,7 @@ import {ProductService} from "../../../core/services/ProductService";
 /** Product page. */
 const ProductPage : React.FC = () => {
     const { productId } = useParams<string>();
+    console.log(productId);
     const [product, setProduct] = useState<Product>(new Product({
         id : "0",
         title : "title",

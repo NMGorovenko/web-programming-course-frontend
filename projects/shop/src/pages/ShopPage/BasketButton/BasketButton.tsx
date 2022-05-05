@@ -1,6 +1,5 @@
 import React from 'react';
 import "./style.css"
-import {useSelector} from "react-redux";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {Link} from "react-router-dom";
 

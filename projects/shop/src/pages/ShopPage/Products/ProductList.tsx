@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import ProductElement from "./ProductsElement/ProductElement";
 import './Products.css'
-import {useAppDispatch, useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {fetchProducts} from "../../../../store/action-creators/product";
-import {getPagesArray} from "../../../../utils/pages";
+import {useAppDispatch, useTypedSelector} from "../../../hooks/useTypedSelector";
+import {fetchProducts} from "../../../store/action-creators/product";
+import {getPagesArray} from "../../../utils/pages";
 
 /** Product list. */
 const ProductList : React.FC = () => {

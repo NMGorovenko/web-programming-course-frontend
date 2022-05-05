@@ -13,8 +13,6 @@ import {
 
 /** Header component. */
 const Header: React.FC = () => {
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
     return (
         <header>
             <Box sx={{ flexGrow: 1 }}>
@@ -26,6 +24,9 @@ const Header: React.FC = () => {
                             </Button>
                             <Button color="inherit" component={Link} to={"/product"} >
                                 Shop
+                            </Button>
+                            <Button color="inherit" component={Link} to={"/chat"} >
+                                Chat
                             </Button>
                         </Typography>
                         <AuthShortElement />

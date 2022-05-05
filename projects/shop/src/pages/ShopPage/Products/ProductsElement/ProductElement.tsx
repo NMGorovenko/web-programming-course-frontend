@@ -1,8 +1,8 @@
 import React from 'react';
 import './ProductItem.css'
-import {Product} from "../../../../../core/models/Product";
+import {Product} from "../../../../core/models/Product";
 import {useDispatch} from "react-redux";
-import {BasketAction, BasketActionTypes} from "../../../../../store/reducers/Basket/BasketTypes";
+import {BasketAction, BasketActionTypes} from "../../../../store/reducers/Basket/BasketTypes";
 import {Dispatch} from "redux";
 import { Link } from 'react-router-dom';
 import {Rating} from "@mui/material";
@@ -36,7 +36,7 @@ const ProductElement: React.FC<ProductElementProps> = props => {
                     <Rating name="read-only" value={feedbackScore} readOnly />
                 </div>
             </div>
-            <a href='src/pages/ShopPage/ProductPage/Products/ProductsElement/ProductElement#'>
+            <a href='src/pages/ShopPage/Products/ProductsElement/ProductElement#'>
                 <img className='product_img'
                      src={props.product.imageUrl}
                      alt='https://bugulma.1sota.ru/images/no_photo.png'/>

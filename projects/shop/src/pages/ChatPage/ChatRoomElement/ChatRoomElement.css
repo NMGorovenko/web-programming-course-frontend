@@ -1,0 +1,8 @@
+.room_element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px black solid;
+    min-width: 768px;
+    min-height: 40px;
+}
