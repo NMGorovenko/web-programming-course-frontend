@@ -1,0 +1,6 @@
+.chat_room__form{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}

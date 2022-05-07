@@ -21,7 +21,10 @@ const ChatPage = () => {
         fetchChatRooms();
     }, []);
 
-    const renderChatRooms = chatRooms.map(room => <ChatRoomElement title={room.name} id={room.id} key={room.id}/>);
+    const renderChatRooms = chatRooms.map(room =>
+        <ChatRoomElement title={room.name}
+                         id={room.id}
+                         key={room.id}/>);
     return (
         <div className={"chat_page"}>
             <h3>Chat rooms: </h3>

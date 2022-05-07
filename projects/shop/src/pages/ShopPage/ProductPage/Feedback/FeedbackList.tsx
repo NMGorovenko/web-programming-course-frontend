@@ -9,6 +9,7 @@ import {FeedbackService} from "../../../../core/services/FeedbackService";
 interface FeedbackListProps {
     productId : string
 }
+
 const FeedbackList : React.FC<FeedbackListProps> = (props) => {
 
     const { productId } = props;

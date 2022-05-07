@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
+
 }
 
 #message_input{
@@ -13,14 +14,11 @@
     width: 600px;
 }
 
-.chat_room__form{
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-}
-
 .chat_room__name{
     font-size: 40px;
     text-align: center;
+}
+
+.chat_room__name {
+    align-self: start;
 }

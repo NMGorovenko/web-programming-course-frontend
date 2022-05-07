@@ -1,0 +1,7 @@
+.chat_room__message_window{
+    height: 600px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    overflow-y: scroll;
+}

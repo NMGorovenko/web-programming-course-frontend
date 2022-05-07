@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as signalR from "@microsoft/signalr";
 
 
 const axiosInstance = axios.create({
@@ -7,4 +8,9 @@ const axiosInstance = axios.create({
     timeout: 60 * 1000,
 });
 
-export {axiosInstance}
+const connectionInstance = new signalR.HubConnectionBuilder()
+    .withUrl(`${process.env.REACT_APP_API_URL}` + "/hub/chat")
+    .configureLogging(signalR.LogLevel.Information)
+    .build();
+
+export {axiosInstance, connectionInstance}
