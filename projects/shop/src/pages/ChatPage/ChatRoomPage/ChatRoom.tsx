@@ -6,7 +6,7 @@ import LeaveMessage from "./LeaveMessage/LeaveMessage";
 
 import MessageList from "./MessageList/MessageList";
 import * as signalR from "@microsoft/signalr";
-import {connectionInstance} from "../../../core/services/ApiService";
+import {chatConnectionInstance} from "../../../core/services/ApiService";
 import {DetailedMessage} from "../../../core/models/DetailedMessage";
 import 'react-notifications/lib/notifications.css';
 

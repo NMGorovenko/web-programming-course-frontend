@@ -4,7 +4,7 @@ import {IconButton, TextField} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import {useParams} from "react-router";
 import * as signalR from "@microsoft/signalr";
-import {connectionInstance} from "../../../../core/services/ApiService";
+import {chatConnectionInstance} from "../../../../core/services/ApiService";
 import {DetailedMessage} from "../../../../core/models/DetailedMessage";
 
 /** Component for leave message. */
@@ -14,12 +14,26 @@ const LeaveMessage = () => {
     const [ connection, setConnection] = useState<signalR.HubConnection>();
 
     useEffect(() => {
-        setConnection(connectionInstance);
+        const listener = event => {
+            if (event.code === "Enter" || event.code === "NumpadEnter") {
+                event.preventDefault();
+                send();
+            }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+            document.removeEventListener("keydown", listener);
+        };
+    }, [sendMessage]);
+
+
+    useEffect(() => {
+        setConnection(chatConnectionInstance);
     },[]);
 
 
     const send = () => {
-        connection?.send("Send", {Text: sendMessage, ChatRoomId: roomId})
+        connection?.send("Send", { Text: sendMessage, ChatRoomId: roomId })
             .catch(console.error)
             .then(() =>
                 setSendMessage(""));

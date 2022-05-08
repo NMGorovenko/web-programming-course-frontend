@@ -8,9 +8,14 @@ const axiosInstance = axios.create({
     timeout: 60 * 1000,
 });
 
-const connectionInstance = new signalR.HubConnectionBuilder()
+const chatConnectionInstance = new signalR.HubConnectionBuilder()
     .withUrl(`${process.env.REACT_APP_API_URL}` + "/hub/chat")
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
-export {axiosInstance, connectionInstance}
+const notifyConnectionInstance = new signalR.HubConnectionBuilder()
+    .withUrl(`${process.env.REACT_APP_API_URL}` + "/hub/notifications")
+    .configureLogging(signalR.LogLevel.Information)
+    .build();
+
+export {axiosInstance, chatConnectionInstance, notifyConnectionInstance}

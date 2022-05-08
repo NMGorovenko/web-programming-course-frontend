@@ -15,6 +15,8 @@ export class ChatRoom {
     /** Created by user. */
     public createdBy : User;
 
+    public followers : User[];
+
     /** Feedback model constructor.
      *
      * @param data Feedback instance data.
@@ -24,5 +26,6 @@ export class ChatRoom {
         this.name = data.name;
         this.createdAt = data.createdAt;
         this.createdBy = data.createdBy;
+        this.followers = data.followers;
     }
 }

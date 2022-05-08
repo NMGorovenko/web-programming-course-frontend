@@ -5,7 +5,7 @@ import * as signalR from "@microsoft/signalr";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import {DetailedMessage} from "../../../../core/models/DetailedMessage";
 import {ChatService} from "../../../../core/services/ChatService";
-import {connectionInstance} from "../../../../core/services/ApiService";
+import {chatConnectionInstance} from "../../../../core/services/ApiService";
 import MessageElement from "./MessageElement/MessageElement";
 
 const MessageList = () => {
@@ -21,7 +21,7 @@ const MessageList = () => {
     }
 
     useEffect(() => {
-        setConnection(connectionInstance);
+        setConnection(chatConnectionInstance);
     },[]);
 
     useEffect(() => {
@@ -86,7 +86,6 @@ const MessageList = () => {
     return (
         <div className={"chat_room__message_window"}>
             {renderMessageList}
-            <NotificationContainer/>
         </div>
     );
 };
