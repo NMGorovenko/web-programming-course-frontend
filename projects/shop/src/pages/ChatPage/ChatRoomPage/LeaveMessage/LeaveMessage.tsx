@@ -7,6 +7,7 @@ import * as signalR from "@microsoft/signalr";
 import {connectionInstance} from "../../../../core/services/ApiService";
 import {DetailedMessage} from "../../../../core/models/DetailedMessage";
 
+/** Component for leave message. */
 const LeaveMessage = () => {
     const { roomId } = useParams<string>();
     const [ sendMessage, setSendMessage ] = useState<string>("");

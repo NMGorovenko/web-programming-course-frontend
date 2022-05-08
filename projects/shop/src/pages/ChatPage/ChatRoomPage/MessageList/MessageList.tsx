@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "./MessageList.css";
 import {useParams} from "react-router";
 import * as signalR from "@microsoft/signalr";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import {DetailedMessage} from "../../../../core/models/DetailedMessage";
 import {ChatService} from "../../../../core/services/ChatService";
 import {connectionInstance} from "../../../../core/services/ApiService";
@@ -28,12 +28,35 @@ const MessageList = () => {
         if (connection) {
             connection.start()
                 .then(result => {
-                    console.log('Connected!');
+                    connection?.send("Join",  {ChatRoomId : roomId})
+                        .catch(console.error)
+                        .then(() => {
+                            console.log("Connect to channel: " + roomId);
+                            // Somebody join the channel.
+                        });
+                    NotificationManager.success('Connected!', "Connection to server", 400);
                     connection.on('Receive', (receiveMessage : DetailedMessage) => {
                         AddMessage(receiveMessage);
                     });
+                    connection.on('Notify', (notifyMessage : string) => {
+                        console.log(notifyMessage);
+                        NotificationManager.info(notifyMessage, "Someone connect", 800);
+                    });
                 })
                 .catch(e => console.log('Connection failed: ', e));
+
+
+            return() => {
+                connection?.send("Left", { ChatRoomId : roomId })
+                    .catch(console.error)
+                    .then(() => {
+                        connection?.stop()
+                            .catch(console.error)
+                            .then(() => {
+                                console.log("You are left form " + roomId);
+                            });
+                    });
+            }
         }
     }, [connection]);
 
@@ -51,7 +74,7 @@ const MessageList = () => {
     const renderMessageList =
         messages && messages
             .sort((x, y) => {
-                return new Date(x.createdAt).getTime() - new Date(y.createdAt).getTime()
+                return new Date(y.createdAt).getTime() - new Date(x.createdAt).getTime()
             })
             .map(mes =>
             <MessageElement
@@ -63,6 +86,7 @@ const MessageList = () => {
     return (
         <div className={"chat_room__message_window"}>
             {renderMessageList}
+            <NotificationContainer/>
         </div>
     );
 };
