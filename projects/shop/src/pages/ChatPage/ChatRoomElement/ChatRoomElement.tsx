@@ -5,6 +5,7 @@ import SendIcon from "@mui/icons-material/Send";
 import {IconButton, Switch} from "@mui/material";
 import {notifyConnectionInstance} from "../../../core/services/ApiService";
 import * as signalR from "@microsoft/signalr";
+import {ChatService} from "../../../core/services/ChatService";
 
 interface IProps {
     title : string;
@@ -14,19 +15,32 @@ interface IProps {
 
 /** Chat room element. */
 const ChatRoomElement : React.FC<IProps> = props => {
-    const {title, id, subscribed } = props;
-    const [ subscribedStatus, isSubscribedStatus ] = useState<boolean>(subscribed);
-    const [ connection, setConnection ] = useState<signalR.HubConnection>();
-    useEffect(() => {
-        setConnection(notifyConnectionInstance);
-    },[]);
+    const { title, id, subscribed } = props;
+    const [ subscribedStatus, setSubscribedStatus ] = useState<boolean>(subscribed);
+
+    const switcherHandler = () => {
+        if (subscribedStatus) {
+            unsubscribe();
+        }
+        else {
+            subscribe();
+        }
+    }
 
     const subscribe = () => {
-        connection?.send("Subscribe", { ChatRoomId : id } )
+        ChatService.SubscribeToRoom(id)
             .catch(console.error)
-            .then(() =>{
-                isSubscribedStatus(!subscribedStatus)
-            });
+            .then(() => {
+                setSubscribedStatus(true);
+            })
+    }
+
+    const unsubscribe = () => {
+        ChatService.UnsubscribeToRoom(id)
+            .catch(console.error)
+            .then(() => {
+                setSubscribedStatus(false);
+            })
     }
 
     return (
@@ -39,7 +53,7 @@ const ChatRoomElement : React.FC<IProps> = props => {
             </div>
             <Switch
                 checked={subscribedStatus}
-                onChange={subscribe}
+                onChange={switcherHandler}
                 inputProps={{ 'aria-label': 'controlled' }}
             />
         </div>

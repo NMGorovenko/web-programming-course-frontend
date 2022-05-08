@@ -20,7 +20,6 @@ const ChatPage = () => {
 
     useEffect(() => {
         fetchChatRooms();
-        console.log(chatRooms);
     }, []);
 
 
